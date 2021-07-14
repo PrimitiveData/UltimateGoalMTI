@@ -50,12 +50,20 @@ public class Shooter implements Subsystem {
         toggleShooter = new Toggle();
     }
 
+    public void shooterOn() {
+        myVelo = 1350;
+    }
+
+    public void shooterOff() {
+        myVelo = 0;
+    }
+
     @Override
     public void update() {
-        if(toggleShooter.getState(robot.gamepad1.left_bumper))
-            myVelo = 1350;
-        else
-            myVelo = 0;
+//        if(toggleShooter.getState(robot.gamepad1.left_bumper))
+//            myVelo = 1350;
+//        else
+//            myVelo = 0;
         double targetVelo = myVelo;
 
         veloController.setTargetVelocity(targetVelo);

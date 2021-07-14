@@ -19,6 +19,7 @@ import java.util.List;
 
 public class Robot {
     public List<Subsystem> subsystems;
+    public List<TeleopManager> teleopManagers;
     public HardwareMap hardwareMap;
     public Intake intake;
     public MecanumDrive mecanumDrive;
@@ -47,6 +48,8 @@ public class Robot {
                 turret,
                 wobbleGoal
         );
+
+        teleopManagers = new ArrayList<>();
     }
 
     public Robot(HardwareMap hardwareMap, Gamepad gamepad1, Gamepad gamepad2){
@@ -75,5 +78,7 @@ public class Robot {
     public void update(){
         for (Subsystem s: subsystems)
             s.update();
+        for (TeleopManager t: teleopManagers)
+            t.update();
     }
 }
